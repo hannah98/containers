@@ -11,8 +11,8 @@ ENV PFSENSE_IP 192.168.1.1
 
 ENV APTLIST="ca-certificates cron wget"
 
-COPY backup.sh /backup.sh
-COPY startup.sh /startup.sh
+COPY ./apps/pfsense-backup/backup.sh /backup.sh
+COPY ./apps/pfsense-backup/startup.sh /startup.sh
 
 RUN apt-get update && apt-get install -y --no-install-recommends $APTLIST && apt-get clean && chmod 755 /backup.sh /startup.sh
 
